@@ -1,0 +1,121 @@
+Exercice 1 :
+
+Dans le une Array vous allez me mettre une suite adresse email.
+Indiquez moi le nombre d'email terminant ".fr"
+
+
+const tab = [
+    'bernard.minet@google.fr',
+    'roger.moore@orange.fr',
+    'stephane.plaza@yo.fr'
+];
+
+//V1
+tab.filter(value => /\.fr$/.test(value)).length
+
+
+//V2
+let compteur = 0;
+tab.forEach((value)=>{
+    if(/\.fr$/.test(value)) compteur++;
+});
+
+Exercice 2
+============
+
+
+Demandez à l'utilisater une longueur et une largeur
+creez un objet rectangle
+
+avec une methode isSquare() //si le rectangle est un carre
+avec une methode aire() //donne l'aire
+avec une methome perim() //perimetre
+
+
+const hauteur = parseInt(prompt('hauteur'));
+const largeur = parseInt(prompt('largeur'));
+
+const rect = {
+    hauteur,
+    largeur,
+    isSquare(){
+        return this.hauteur === this.largeur;
+    },
+    perim(){
+        return (this.hauteur + this.largeur)*2;
+    },
+    aire(){
+        return this.hauteur * this.largeur;
+    }
+}
+
+
+Exercice 3 
+===============================
+
+
+
+Demander une serie de nombre
+le programme les stocke quand un Array
+les trie et fabrique un objet
+{
+    premier,
+    second,
+    troisieme,
+    leReste
+}
+
+
+Afficher trois variables :
+
+premier
+second
+autres (troisieme + le reste)
+
+Utiliser la decomposition et le restoperator
+
+
+
+Exercice 4
+=================
+
+Copie profondeur 
+
+
+const Personne = {
+    nom:'',
+    prenom:''
+}
+
+const Adresse = {
+    adresse:{
+        rue:'',
+        ville:'',
+        cp:0
+    }
+}
+
+const personnesArray = [];
+
+for(let i=0; i < 5; i++){
+    const obj = JSON.parse(JSON.stringify({...Personne, ...Adresse}));
+    obj.nom = `nom ${i}`;  
+    obj.prenom = `prenom ${i}`;
+    obj.adresse.rue = `rue ${i}`; 
+    obj.adresse.ville = `ville ${i}`; 
+    obj.adresse.cp = 9999;   
+    personnesArray.push(obj);
+}
+
+console.log(personnesArray);
+
+
+Exercice 5
+==========
+
+
+Creer une fonction
+==================
+
+qui permet d'executer une operation sur une liste de parametre dynamique (rest operator)
+(callback)
